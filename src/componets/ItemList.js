@@ -3,6 +3,8 @@ import Card from './UI/Card';
 
 const ListItem = (props) => {
 
+    //console.log(props.data.id)
+
     const editItem = () => {
         console.log('edit')
     }
