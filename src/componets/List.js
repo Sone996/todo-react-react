@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
-import ItemList from './ItemList';
+import ItemList from './ListItem';
 import Scroll from './UI/Scroll';
 
 
-const List = ({ collection }) => {
+const List = (props) => {
 
-    // const [expenses, setExpenses] = useState(props.addItemHandler);
+    console.log(props)
 
-    // console.log(props)
 
-    // const addItemHandler = (data) => {
-    //     console.log('sasjaskasjk', data)
-    //     return expenses;
-    // }
+    const deleteHandler = (id) => {
+        props.deleteHandler(id)
+    }
 
     return (
         <div className="relative flex flex-grow">
             <Scroll>
                 <div>
                     {
-                    collection.map(item => (
-                        <ItemList key={item.id} data={item}/>
+                    props.collection.map(item => (
+                        <ItemList key={item.id} data={item} deleteHandler={deleteHandler} />
                     ))
                     }
                 </div>

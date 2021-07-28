@@ -53,8 +53,19 @@ const Home = () => {
 
     const onSave = (item) => {
         if(Object.keys(item).length > 0) {
-            setNewTask([item, ...itemData])
+            setNewTask([item, ...newTask])
         }
+    }
+
+    const deleteFunction = (id) => {
+        let deleting = newTask;
+        newTask.map((item, index) => {
+            if(item.id === id) {
+                return deleting.splice(index, 1);
+            }
+        });
+        setNewTask(deleting);
+        // console.log(newTask);
     }
 
     return (
@@ -63,7 +74,7 @@ const Home = () => {
             <div className="flex flex-col w-full px-64 pb-16 flex-grow">
                 {/* <Card> */}
                     <NewItem onSave={onSave} />
-                    <List collection={newTask} />
+                    <List collection={newTask} deleteHandler={deleteFunction} />
                 {/* </Card> */}
             </div>
         </div>
