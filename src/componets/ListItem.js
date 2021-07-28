@@ -1,21 +1,21 @@
 import React from 'react';
 import Card from './UI/Card';
 
-const ListItem = (props) => {
+const ListItem = ({data, deleteHandler}) => {
 
     const editItem = () => {
         console.log('edit')
     }
 
     const deleteItem = () => {
-        props.deleteHandler(props.data.id)
+        deleteHandler(data.id)
     }
 
 
     return (
-        <Card bg="bg-lightGray">
-            <span className="text-green-300 text-2xl py-2">{props.data.title}</span>
-            <span className="text-green-300">{props.data.comment}</span>
+        <Card key={data.id} bg="bg-lightGray">
+            <span className="text-green-300 text-2xl py-2">{data.title}</span>
+            <span className="text-green-300">{data.comment}</span>
             <div className="flex justify-end">
                 <span 
                     className="button bg-lightBlue"

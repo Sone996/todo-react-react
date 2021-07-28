@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-//import Card from './UI/Card';
 import List from './List';
 import NewItem from './newItem/NewItem';
 
-const itemData = [
+const initItems = [
     {
         id: 1,
         title: 'Item 1',
@@ -49,23 +48,22 @@ const itemData = [
 
 const Home = () => {
 
-    const [newTask, setNewTask] = useState(itemData);
+    const [taskList, setTaskList] = useState(initItems);
 
     const onSave = (item) => {
         if(Object.keys(item).length > 0) {
-            setNewTask([item, ...newTask])
+            setTaskList([item, ...taskList])
         }
     }
 
     const deleteFunction = (id) => {
-        let deleting = newTask;
-        newTask.map((item, index) => {
+        let deleting = taskList;
+        taskList.map((item, index) => {
             if(item.id === id) {
                 return deleting.splice(index, 1);
             }
         });
-        setNewTask(deleting);
-        // console.log(newTask);
+        setTaskList(deleting);
     }
 
     return (
@@ -74,7 +72,7 @@ const Home = () => {
             <div className="flex flex-col w-full px-64 pb-16 flex-grow">
                 {/* <Card> */}
                     <NewItem onSave={onSave} />
-                    <List collection={newTask} deleteHandler={deleteFunction} />
+                    <List collection={taskList} deleteHandler={deleteFunction} />
                 {/* </Card> */}
             </div>
         </div>
