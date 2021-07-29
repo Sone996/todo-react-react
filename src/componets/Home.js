@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from './List';
 import NewItem from './newItem/NewItem';
 
@@ -18,37 +18,33 @@ const initItems = [
         title: 'Item 3',
         comment: 'Test Test'
     },
-    {
-        id: 4,
-        title: 'Item 4',
-        comment: 'Test Test'
-    },
-    {
-        id: 5,
-        title: 'Item 5',
-        comment: 'Test Test'
-    },
-    {
-        id: 6,
-        title: 'Item 6',
-        comment: 'Test Test'
-    },
-    {
-        id: 7,
-        title: 'Item 7',
-        comment: 'Test Test'
-    },
-    {
-        id: 8,
-        title: 'Item 8',
-        comment: 'Test Test'
-    },
 
 ]
 
 const Home = () => {
 
-    const [taskList, setTaskList] = useState(initItems);
+    const [taskList, setTaskList] = useState([
+        {
+            id: 1,
+            title: 'Item 1',
+            comment: 'Test Test'
+        },
+        {
+            id: 2,
+            title: 'Item 2',
+            comment: 'Test Test'
+        },
+        {
+            id: 3,
+            title: 'Item 3',
+            comment: 'Test Test'
+        },
+    
+    ]);
+
+    // useEffect(() => {
+    //     console.log('efferct')
+    // }, [taskList])
 
     const onSave = (item) => {
         if(Object.keys(item).length > 0) {
@@ -57,13 +53,7 @@ const Home = () => {
     }
 
     const deleteFunction = (id) => {
-        let deleting = taskList;
-        taskList.map((item, index) => {
-            if(item.id === id) {
-                return deleting.splice(index, 1);
-            }
-        });
-        setTaskList(deleting);
+        setTaskList(taskList.filter(item => item.id != id));
     }
 
     return (

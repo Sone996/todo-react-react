@@ -6,6 +6,7 @@ const NewItem = (props) => {
     const [enteredDescription, setEnteredDescription] = useState('');
 
     const titleHandler = (event) => {
+        console.log(event)
         setEnteredTitle(event.target.value);
     }
 
@@ -20,8 +21,9 @@ const NewItem = (props) => {
             comment: enteredDescription,
             id: Math.random()
         };
-        // data.title.length > 0 ? props.onSave(data) : null;
         props.onSave(data)
+        setEnteredTitle('');
+        setEnteredDescription('');
     }
     return (
         <div className="flex flex-col p-2 bg-lightGray my-4">

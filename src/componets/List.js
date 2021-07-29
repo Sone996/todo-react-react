@@ -5,15 +5,15 @@ import Scroll from './UI/Scroll';
 
 const List = ({collection, deleteHandler}) => {
 
-    console.log(collection)
-
     return (
         <div className="relative flex flex-grow">
             <Scroll>
                 <div>
                     {
                     collection.map(item => (
-                        <ItemList key={item.id} data={item} deleteHandler={deleteHandler} />
+                        <ItemList key={item.id}
+                            data={item}
+                            deleteHandler={deleteHandler} />
                     ))
                     }
                 </div>
