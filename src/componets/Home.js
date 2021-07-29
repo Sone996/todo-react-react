@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import List from './List';
 import NewItem from './newItem/NewItem';
+import logo from '../logo.svg';
 
 const initItems = [
     {
@@ -62,7 +63,10 @@ const Home = () => {
 
     return (
         <div className="items-center flex flex-col w-full pt-10">
-            <span className="text-5xl text-green-300">To-Do List</span>
+            <div className="flex">
+                <span className="text-5xl text-green-300">To-Do List</span>
+                <img src={logo} className="App-logo" alt="logo" />
+            </div>
             <div className="flex flex-col w-full px-64 pb-16 flex-grow">
                 {/* <Card> */}
                     <NewItem onSave={onSave} forEdit={forEdit} editedItem={editedItem}/>
