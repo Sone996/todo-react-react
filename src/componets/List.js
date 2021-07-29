@@ -3,7 +3,7 @@ import ItemList from './ListItem';
 import Scroll from './UI/Scroll';
 
 
-const List = ({collection, deleteHandler}) => {
+const List = ({collection, deleteHandler, editHandler}) => {
 
     return (
         <div className="relative flex flex-grow">
@@ -11,9 +11,12 @@ const List = ({collection, deleteHandler}) => {
                 <div>
                     {
                     collection.map(item => (
-                        <ItemList key={item.id}
+                        <ItemList
+                            key={item.id}
                             data={item}
-                            deleteHandler={deleteHandler} />
+                            deleteHandler={deleteHandler}
+                            editHandler={editHandler}
+                        />
                     ))
                     }
                 </div>

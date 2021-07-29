@@ -1,10 +1,10 @@
 import React from 'react';
 import Card from './UI/Card';
 
-const ListItem = ({data, deleteHandler}) => {
+const ListItem = ({data, deleteHandler, editHandler}) => {
 
     const editItem = () => {
-        console.log('edit')
+        editHandler(data);
     }
 
     const deleteItem = () => {
