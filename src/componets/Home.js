@@ -2,25 +2,7 @@ import React, { useState } from 'react';
 import List from './List';
 import NewItem from './newItem/NewItem';
 import logo from '../logo.svg';
-
-const initItems = [
-    {
-        id: 1,
-        title: 'Item 1',
-        comment: 'Test Test'
-    },
-    {
-        id: 2,
-        title: 'Item 2',
-        comment: 'Test Test'
-    },
-    {
-        id: 3,
-        title: 'Item 3',
-        comment: 'Test Test'
-    },
-
-]
+import initItems from "../data.json";
 
 const Home = () => {
 
@@ -68,10 +50,8 @@ const Home = () => {
                 <img src={logo} className="App-logo" alt="logo" />
             </div>
             <div className="flex flex-col w-full px-64 pb-16 flex-grow">
-                {/* <Card> */}
                     <NewItem onSave={onSave} forEdit={forEdit} editedItem={editedItem}/>
                     <List collection={taskList} deleteHandler={deleteFunction} editHandler={sendEdit}/>
-                {/* </Card> */}
             </div>
         </div>
     );

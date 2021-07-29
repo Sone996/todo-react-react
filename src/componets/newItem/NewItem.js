@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Card from '../UI/Card';
+
 
 const NewItem = ({onSave, forEdit, editedItem}) => {
 
@@ -49,6 +51,7 @@ const NewItem = ({onSave, forEdit, editedItem}) => {
     //     console.log(forEdit);
 
     return (
+        <Card bg="bg-lightGray">
         <div className="flex flex-col p-2 bg-lightGray my-4">
             <span>Title: </span>
             <input className="input" type="text" value={enteredTitle} onChange={titleHandler} />
@@ -58,6 +61,7 @@ const NewItem = ({onSave, forEdit, editedItem}) => {
                 <span className="bg-lightBlue button" onClick={forEdit.title.length > 0 ? editItemHandler : addItem}>Add</span>
             </div>
         </div>
+        </Card>
     )
 }
 

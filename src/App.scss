@@ -43,7 +43,7 @@
 
 
 .input{
-  @apply py-2 px-3 rounded-md appearance-none border;
+  @apply py-2 px-3 rounded-md appearance-none border text-lightGray;
   &:focus {
       @apply outline-none;
       //@apply shadow-outline;
